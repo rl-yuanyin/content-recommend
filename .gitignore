@@ -67,9 +67,3 @@ out/
 *~
 .idea/
 *.iml
-
-# Internal docs and debug files
-GPT5.6_交接文档.md
-codex_debug_milvus_init.md
-.pexels_audit/
-秋招全攻略_主文档.md
