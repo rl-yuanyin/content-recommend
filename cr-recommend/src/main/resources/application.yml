@@ -1,0 +1,83 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: cr-recommend
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 25MB
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/content_recommend?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+  redis:
+    host: localhost
+    port: 6379
+    database: 2
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    listener:
+      simple:
+        acknowledge-mode: manual
+        prefetch: 10
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.cr.recommend.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+knife4j:
+  enable: true
+  openapi:
+    title: 推荐服务接口文档
+    description: 智能推荐算法服务
+    version: 1.0.0
+
+# 推荐算法配置
+recommend:
+  content-recommend-count: 10
+  cf-recommend-count: 10
+  hot-recommend-count: 10
+  cache-hours: 2
+
+milvus:
+  host: localhost
+  port: 19530
+  username: root
+  password: Milvus
+  collection-name: image_features
+
+djl:
+  model-name: resnet50
+  feature-dim: 2048
+  http-proxy-host: ${https.proxyHost:}
+  http-proxy-port: ${https.proxyPort:0}
+  connect-timeout-ms: 15000
+  read-timeout-ms: 60000
+
+# 通义千问VL配置。生产环境通过DASHSCOPE_API_KEY环境变量注入密钥。
+qwen:
+  api-key: ${DASHSCOPE_API_KEY:}
+  base-url: https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
+  model: qwen-vl-plus
+  connect-timeout-ms: 10000
+  read-timeout-ms: 60000
+  max-image-bytes: 10485760
+
+file:
+  upload-path: D:/idea-demo/content-recommend/upload/images/

@@ -1,0 +1,96 @@
+:root {
+  font-family:
+    "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+  color: #18242f;
+  background: #f4f6f8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --app-primary: #176b87;
+  --app-primary-dark: #12566d;
+  --app-accent: #e76f51;
+  --app-text: #18242f;
+  --app-muted: #6d7b87;
+  --app-border: #e3e9ee;
+  --app-surface: #ffffff;
+  --app-bg: #f4f6f8;
+  --el-color-primary: #176b87;
+  --el-color-primary-light-3: #5a98ac;
+  --el-color-primary-light-5: #8bb6c4;
+  --el-color-primary-light-7: #bdd5dc;
+  --el-color-primary-light-8: #d6e5e9;
+  --el-color-primary-light-9: #edf4f6;
+  --el-color-primary-dark-2: #12566d;
+  --el-border-radius-base: 6px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-width: 320px;
+  background: var(--app-bg);
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-shell {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.surface {
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: 8px;
+}
+
+.muted {
+  color: var(--app-muted);
+}
+
+.page-title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.3;
+  color: var(--app-text);
+}
+
+.page-subtitle {
+  margin: 6px 0 0;
+  color: var(--app-muted);
+  font-size: 14px;
+}
+
+.empty-state {
+  padding: 48px 20px;
+  text-align: center;
+  color: var(--app-muted);
+}
+
+@media (max-width: 720px) {
+  .page-shell {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .page-title {
+    font-size: 21px;
+  }
+}
